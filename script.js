@@ -13,7 +13,8 @@ if ( pricParm[0] != undefined ){
     cycleKey = pricParm[0].split('=')[1]
 }
 
-let cycleKeys = cycleKey.replace(/ /g,'').split(",")
+let cycleKeys = cycleKey.replace(/ /g,'')
+cycleKeys = cycleKeys.split(",")
 console.log(cycleKeys)
 
 for (let i in cycleKeys){
