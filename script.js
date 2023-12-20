@@ -5,6 +5,8 @@ const pricParm = process.argv.slice(2)
 let cycleKey = "SSS-1111,SSS-2222"
 
 const token = process.env.ACCESS_TOKEN
+const testVar = process.env.TEST_VAR
+console.log(testVar)
 
 if ( pricParm[0] != undefined ){
     // console.log(pricParm[0])

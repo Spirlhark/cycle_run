@@ -15,6 +15,7 @@ jobs:
     env:
       CYCLE_KEY: ${{ inputs.cycle_key }}
       ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+      TEST_VAR: ${{ secrets.TEST_VAR }}
 
     steps:
       - uses: actions/checkout@v2
