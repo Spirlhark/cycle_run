@@ -14,10 +14,8 @@ if ( pricParm[0] != undefined ){
 }
 
 console.log(cycleKey)
-console.log(typeof(cycleKey))
 
-let cycleKeys = cycleKey.replace(/ /g,'')
-cycleKeys = cycleKeys.split(",")
+let cycleKeys = cycleKey.split(",")
 console.log(cycleKeys)
 
 for (let i in cycleKeys){
