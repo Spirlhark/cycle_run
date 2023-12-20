@@ -10,32 +10,32 @@ if ( pricParm[0] != undefined ){
 }
 
 let cycleKeys = cycleKey.split(",")
-let text = ""
+console.log(cycleKeys)
+
 for (let i in cycleKeys){
-    text = text + `${cycleKeys[i]}\n`
+    
+    let data = {
+        "ref":"master", 
+        "inputs": 
+            {
+                "cycle_key": `${cycleKeys[i]}`
+            }
+    }
+    async function executionData() {
+        const response = await fetch(`https://api.github.com/repos/Spirlhark/cycle_run/actions/workflows/79980694/dispatches`, {
+            method: "POST",
+            headers: {
+                Authorization: "token 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",
+                Accept: "application/vnd.github.v3+json"
+            },
+            body: JSON.stringify(data)
+            });
+            
+        console.log("++++++++")
+        console.log(response.status);
+        console.log("++++++++")
+    
+    }
+    
+    executionData()
 }
-
-console.log("=================")
-console.log("====         ====")
-console.log("=               =")
-console.log("=               =")
-console.log(" ")
-console.log(`${text}`)
-console.log("=               =")
-console.log("=               =")
-console.log("====         ====")
-console.log("=================")
-
-async function executionData() {
-    const response = await fetch(`https://restful-booker.herokuapp.com/ping`, {
-        method: "GET",
-        headers: {},
-        });
-        
-    console.log("++++++++")
-    console.log(response.status);
-    console.log("++++++++")
-
-}
-
-executionData()
