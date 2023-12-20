@@ -13,6 +13,9 @@ if ( pricParm[0] != undefined ){
     cycleKey = pricParm[0].split('=')[1]
 }
 
+console.log(cycleKey)
+console.log(typeof(cycleKey))
+
 let cycleKeys = cycleKey.replace(/ /g,'')
 cycleKeys = cycleKeys.split(",")
 console.log(cycleKeys)
