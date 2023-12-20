@@ -27,4 +27,4 @@ jobs:
 
       - name: Run Print
         if: always()
-        run: node script.js
+        run: node script.js cycleKey=$CYCLE_KEY
