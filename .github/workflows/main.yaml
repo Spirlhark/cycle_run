@@ -7,6 +7,10 @@ on:
         description: " Сycle key "
         required: true
         type: string
+      env_key:
+        description: " env "
+        required: true
+        type: string
 
 jobs:
   print:
@@ -14,6 +18,7 @@ jobs:
     
     env:
       CYCLE_KEY: ${{ inputs.cycle_key }}
+      ENV_KEY: ${{ inputs.env_key }}
 
     steps:
       - uses: actions/checkout@v2
@@ -27,4 +32,4 @@ jobs:
 
       - name: Run Print
         if: always()
-        run: node script.js cycleKey=$CYCLE_KEY
+        run: node script.js cycleKey=$CYCLE_KEY, envKey=$ENV_KEY
