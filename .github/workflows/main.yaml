@@ -3,6 +3,12 @@ name: print_Cycle
 on:
   workflow_dispatch:
     inputs:
+      name:
+          type: choice
+          description: Who to greet
+          options: 
+          - monalisa
+          - cschleiden
       cycle_key:
         description: " Сycle key "
         required: true
