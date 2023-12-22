@@ -14,7 +14,7 @@ jobs:
     
     env:
       CYCLE_KEY: ${{ inputs.cycle_key }}
-      ENV: ${{ inputs.env }}
+      TESTS: ${{ inputs.tests }}
       ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       TEST_VAR: ${{ secrets.TEST_VAR }}
 
