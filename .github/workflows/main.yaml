@@ -13,8 +13,8 @@ jobs:
     runs-on: ubuntu-latest
     
     env:
-      CYCLE_KEY: ${{ inputs.cycle_key }}
-      TESTS: ${{ inputs.tests }}
+      # CYCLE_KEY: ${{ inputs.cycle_key }}
+      TESTS_KEY: ${{ inputs.tests_key }}
       ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       TEST_VAR: ${{ secrets.TEST_VAR }}
 
