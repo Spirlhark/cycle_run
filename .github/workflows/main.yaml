@@ -5,10 +5,10 @@ on:
     inputs:
       name:
         type: choice
-        description: Select Env
+        description: Environment
         options: 
-        - STAGE
-        - DEV
+        - staging
+        - dev
       cycle_key:
         description: " Сycle key "
         required: true
