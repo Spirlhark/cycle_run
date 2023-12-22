@@ -32,4 +32,4 @@ jobs:
 
       - name: Run Print
         if: always()
-        run: node script.js cycleKey=$CYCLE_KEY, envKey=$ENV_KEY
+        run: node script.js cycleKey=$CYCLE_KEY envKey=$ENV_KEY
