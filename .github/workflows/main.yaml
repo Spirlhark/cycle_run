@@ -4,19 +4,19 @@ on:
   workflow_dispatch:
     inputs:
       name:
-          type: choice
-          description: Select Env
-          options: 
-          - Stage
-          - Dev
+        type: choice
+        description: Select Env
+        options: 
+        - STAGE
+        - DEV
       cycle_key:
         description: " Сycle key "
         required: true
         type: string
-      test_key:
-        description: " ENV key "
-        required: true
-        type: string
+      # test_key:
+      #   description: " ENV key "
+      #   required: true
+      #   type: string
 
 jobs:
   print:
@@ -24,7 +24,7 @@ jobs:
     
     env:
       CYCLE_KEY: ${{ inputs.cycle_key }}
-      TESTS_KEY: ${{ inputs.tests_key }}
+      ENV_KEY: ${{ inputs.name }}
       ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       TEST_VAR: ${{ secrets.TEST_VAR }}
 

@@ -6,6 +6,7 @@ let cycleKey = "SSS-1111,SSS-2222"
 
 const token = process.env.ACCESS_TOKEN
 const testVar = process.env.TEST_VAR
+const envKey = process.env.ENV_KEY
 console.log(testVar)
 
 if ( pricParm[0] != undefined ){
@@ -14,6 +15,9 @@ if ( pricParm[0] != undefined ){
 }
 
 console.log(cycleKey)
+console.log("~~~~~~~~~~~~")
+console.log(envKey)
+console.log("~~~~~~~~~~~~")
 
 let cycleKeys = cycleKey.split(",")
 console.log(cycleKeys)
