@@ -7,13 +7,17 @@ on:
         description: " Сycle key "
         required: true
         type: string
+      test_key:
+        description: " ENV key "
+        required: true
+        type: string
 
 jobs:
   print:
     runs-on: ubuntu-latest
     
     env:
-      # CYCLE_KEY: ${{ inputs.cycle_key }}
+      CYCLE_KEY: ${{ inputs.cycle_key }}
       TESTS_KEY: ${{ inputs.tests_key }}
       ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
       TEST_VAR: ${{ secrets.TEST_VAR }}
