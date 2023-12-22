@@ -5,10 +5,10 @@ on:
     inputs:
       name:
           type: choice
-          description: Who to greet
+          description: Select Env
           options: 
-          - monalisa
-          - cschleiden
+          - Stage
+          - Dev
       cycle_key:
         description: " Сycle key "
         required: true
