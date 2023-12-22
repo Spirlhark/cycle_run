@@ -28,7 +28,8 @@ for (let i in cycleKeys){
         "ref":"master", 
         "inputs": 
             {
-                "cycle_key": `${cycleKeys[i]}`
+                "cycle_key": `${cycleKeys[i]}`,
+                "env_key": `${envKey}`
             }
     }
     async function executionData() {
