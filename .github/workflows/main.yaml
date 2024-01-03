@@ -21,7 +21,7 @@ jobs:
       ENV_KEY: ${{ inputs.env_key }}
     strategy:
       matrix:
-        param: [$CYCLE_KEY] 
+        cycle_key: ${{ fromJSON(github.event.inputs.OS) }} 
     steps:
       - uses: actions/checkout@v2
 
