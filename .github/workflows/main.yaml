@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        param: [$CYCLE_KEY] 
+        param: $CYCLE_KEY 
     env:
       CYCLE_KEY: ${{ inputs.cycle_key }}
       ENV_KEY: ${{ inputs.env_key }}
