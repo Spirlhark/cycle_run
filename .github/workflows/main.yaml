@@ -15,7 +15,9 @@ on:
 jobs:
   print:
     runs-on: ubuntu-latest
-    
+    strategy:
+      matrix:
+        param: [$CYCLE_KEY] 
     env:
       CYCLE_KEY: ${{ inputs.cycle_key }}
       ENV_KEY: ${{ inputs.env_key }}
@@ -32,4 +34,4 @@ jobs:
 
       - name: Run Print
         if: always()
-        run: node script.js cycleKey=$CYCLE_KEY envKey=$ENV_KEY
+        run: node script.js cycleKey=${{ matrix.param }} envKey=$ENV_KEY
