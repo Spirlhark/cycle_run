@@ -6,7 +6,7 @@ on:
       CYCLE_KEY:
         description: " Сycle key "
         required: true
-        default: 'XXX-1111,XXX-2222'
+        default: 'EEE-1111,EEE-2222'
       env_key:
         type: choice
         description: Environment
