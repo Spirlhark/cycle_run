@@ -3,25 +3,24 @@ name: print_Cycle
 on:
   workflow_dispatch:
     inputs:
-      cycle_key:
+      CYCLE_KEY:
         description: " Сycle key "
         required: true
-        type: string
-      env_key:
-        description: " env "
-        required: true
-        type: string
+        default: 'XXX-1111,XXX-2222'
+      # env_key:
+      #   description: " env "
+      #   required: true
+      #   type: string
 
 jobs:
-  print:
+  pre:
     runs-on: ubuntu-latest
-    
-    env:
-      # CYCLE_KEY: ${{ inputs.cycle_key }}
-      ENV_KEY: ${{ inputs.env_key }}
-    strategy:
-      matrix:
-        cycle_key: ${{ fromJSON(github.event.inputs.cycle_key) }} 
+    outputs:
+      cycle_key: ${{ steps.set-matrix.outputs.cycle_key }}
+    # env:
+    #   # CYCLE_KEY: ${{ inputs.cycle_key }}
+    #   ENV_KEY: ${{ inputs.env_key }}
+
     steps:
       - uses: actions/checkout@v2
 
@@ -31,7 +30,25 @@ jobs:
 
       - name: Install dependencies
         run: npm install 
+      - name: transform input
+        id: transformInput
+        uses: ./.github/actions/transformer/
+        with:
+          cycle_key: ${{ github.event.inputs.CYCLE_KEY }}
+      - id: set-matrix
+        run: |
+          echo "::set-output name=cycle_key::${{ steps.transformInput.outputs.cycle_key }}"
 
+  print:
+    needs: pre
+    runs-on: ubuntu-latest
+    name: "${{ matrix.CYCLE_KEY }}"
+    strategy:
+      fail-fast: false
+      matrix:
+        CYCLE_KEY: ${{fromJSON( needs.prebuild.outputs.cycle_key )}}
+    steps:
       - name: Run Print
         if: always()
-        run: node script.js cycleKey=${{ matrix.cycle_key }} envKey=$ENV_KEY
+        run: node script.js cycleKey=$CYCLE_KEY
+        # run: node script.js cycleKey=$CYCLE_KEY envKey=$ENV_KEY
