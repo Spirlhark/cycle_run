@@ -7,10 +7,20 @@ on:
         description: " Сycle key "
         required: true
         default: 'XXX-1111,XXX-2222'
-      # env_key:
-      #   description: " env "
-      #   required: true
-      #   type: string
+      env_key:
+        type: choice
+        description: Environment
+        options: 
+        - staging
+        - dev
+      vus:
+        description: " VUS "
+        required: true
+        type: int
+      durations:
+        description: " Durations "
+        required: true
+        type: int
 
 jobs:
   pre:
@@ -47,6 +57,9 @@ jobs:
       fail-fast: false
       matrix:
         CYCLE_KEY: ${{fromJSON( needs.pre.outputs.cycle_key )}}
+    env:
+      # CYCLE_KEY: ${{ inputs.cycle_key }}
+      ENV_KEY: ${{ inputs.env_key }}
     steps:
       - uses: actions/checkout@v2
 
@@ -56,8 +69,8 @@ jobs:
 
       - name: Install dependencies
         run: npm install 
-        
+
       - name: Run Print
         if: always()
-        run: node script.js cycleKey=${{ matrix.CYCLE_KEY }}
+        run: node script.js cycleKey=${{ matrix.CYCLE_KEY }} envKey=$ENV_KEY
         # run: node script.js cycleKey=$CYCLE_KEY envKey=$ENV_KEY
