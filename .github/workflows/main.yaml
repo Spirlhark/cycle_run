@@ -50,5 +50,5 @@ jobs:
     steps:
       - name: Run Print
         if: always()
-        run: node script.js cycleKey=$CYCLE_KEY
+        run: node script.js cycleKey=${{ matrix.CYCLE_KEY }}
         # run: node script.js cycleKey=$CYCLE_KEY envKey=$ENV_KEY
