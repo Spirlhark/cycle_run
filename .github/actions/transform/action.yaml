@@ -14,7 +14,7 @@ inputs:
   #   - dev
 outputs:
   cycle_key:
-    description: This is transformed output in array of string from provided Сycle_Key
+    description: This is transformed output in array of string from provided cycle_key
 runs:
   using: node16
   main: index.js

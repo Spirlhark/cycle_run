@@ -12,9 +12,15 @@ core.info(
   );
 // create arrays by splitting input on ','
   const cycle_keyArray = cycle_key.split(",");
+  console.log("=======")
+  console.log(cycle_keyArray)
+  console.log("=======")
 // Reduce array to string with single quotation mark
   const cycle_keyInputStringified = cycle_keyArray.map(_cycle_key => `'${_cycle_key}'`).toString();
   core.setOutput("cycle_key", `[${cycle_keyInputStringified}]`);
+  console.log("-------")
+  console.log(cycle_keyInputStringified)
+  console.log("-------")
 } catch (error) {
   core.setFailed(
     `Action failed to transform input with error: ${error.message}`
