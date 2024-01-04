@@ -13,7 +13,7 @@ core.info(
 // create arrays by splitting input on ','
   const cycle_keyArray = cycle_key.split(",");
 // Reduce array to string with single quotation mark
-  const osInputStringified = cycle_keyArray.map(_cycle_key => `'${_cycle_key}'`).toString();
+  const cycle_keyInputStringified = cycle_keyArray.map(_cycle_key => `'${_cycle_key}'`).toString();
   core.setOutput("cycle_key", `[${cycle_keyInputStringified}]`);
 } catch (error) {
   core.setFailed(
