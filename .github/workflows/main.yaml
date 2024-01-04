@@ -32,7 +32,7 @@ jobs:
         run: npm install 
       - name: transform input
         id: transformInput
-        uses: ./.github/actions/transformer/
+        uses: ./.github/actions/transform/
         with:
           cycle_key: ${{ github.event.inputs.CYCLE_KEY }}
       - id: set-matrix
