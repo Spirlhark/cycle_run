@@ -46,7 +46,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        CYCLE_KEY: ${{fromJSON( needs.prebuild.outputs.cycle_key )}}
+        CYCLE_KEY: ${{fromJSON( needs.pre.outputs.cycle_key )}}
     steps:
       - name: Run Print
         if: always()
