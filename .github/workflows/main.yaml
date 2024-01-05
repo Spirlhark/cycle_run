@@ -21,15 +21,18 @@ on:
         type: choice
         description: " Durations or Iterations "
         options: 
-        - durations
         - iterations
+        - durations
       # znach:
       #   description: " Введите значение ${{ fromJSON( github.event.inputs.durationsOrIterations )}} параметра "
       #   required: false
       #   type: number
       znach:
-        description: " Введите значение предыдущего параметра "
+        description: " Введите значение предыдущего параметра
+        - если выбрали iterations укажите желаемое значение итераций
+        - если выбрали durations укажите значение в секундах "
         required: false
+        default: 1
         type: number
             
 
