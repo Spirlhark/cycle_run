@@ -24,9 +24,13 @@ on:
         - durations
         - iterations
       znach:
-        description: " Введите значение ${{ github.event.inputs.durationsOrIterations }} параметра "
+        description: " Введите значение ${{ fromJSON( github.event.inputs.durationsOrIterations )}} параметра "
         required: false
         type: number
+      # znach:
+      #   description: " Введите значение предыдущего параметра "
+      #   required: false
+      #   type: number
             
 
       # durations:
