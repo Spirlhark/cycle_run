@@ -17,10 +17,23 @@ on:
         description: " VUS "
         required: true
         type: int
-      durations:
-        description: " Durations "
-        required: true
-        type: int
+      durations or iterations:
+        type: choice
+        description: " Durations or Iterations "
+        options: 
+        - durations:
+            description: " durations "
+            required: true
+            type: number
+        - iterations:
+            description: " iterations "
+            required: true
+            type: number
+
+      # durations:
+      #   description: " Durations "
+      #   required: true
+      #   type: int
 
 jobs:
   pre:
