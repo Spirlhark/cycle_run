@@ -21,11 +21,11 @@ on:
         type: choice
         description: " Durations or Iterations "
         options: 
-        - durations:
+          durations:
             description: " durations "
             required: true
             type: number
-        - iterations:
+          iterations:
             description: " iterations "
             required: true
             type: number
