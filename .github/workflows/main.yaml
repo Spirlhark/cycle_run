@@ -23,7 +23,7 @@ on:
         options: 
         - durations
         - iterations
-      vus:
+      znach:
         description: " Введите значение предыдущего параметра "
         required: true
         type: number
