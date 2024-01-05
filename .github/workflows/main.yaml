@@ -17,14 +17,14 @@ on:
         description: " VUS "
         required: true
         type: number
-      durations or iterations:
+      durationsOrIterations:
         type: choice
         description: " Durations or Iterations "
         options: 
         - durations
         - iterations
       znach:
-        description: " Введите значение предыдущего параметра "
+        description: " Введите значение ${{ github.event.inputs.durationsOrIterations }} параметра "
         required: false
         type: number
             
