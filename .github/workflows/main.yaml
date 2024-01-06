@@ -6,7 +6,7 @@ on:
       CYCLE_KEY:
         description: " Сycle key "
         required: true
-        default: 'EEE-1111,EEE-2222'
+        default: 'XXX-1111,XXX-2222'
       env_key:
         type: choice
         description: Environment
@@ -24,27 +24,14 @@ on:
         options: 
         - iterations
         - durations
-      # znach:
-      #   description: " Введите значение ${{ fromJSON( github.event.inputs.durationsOrIterations )}} параметра "
-      #   required: false
-      #   type: number
       znach:
         description: " Введите значение предыдущего параметра:\n
         - если выбрали iterations укажите желаемое значение итераций        \t           
         - если выбрали durations укажите значение в секундах "
-        # description: |-
-        #   Введите значение предыдущего параметра:
-        #   - если выбрали iterations укажите желаемое значение итераций       или
-        #   - если выбрали durations укажите значение в секундах
         required: false
         default: 1
         type: number
             
-
-      # durations:
-      #   description: " Durations "
-      #   required: true
-      #   type: int
 
 jobs:
   pre:
@@ -53,7 +40,7 @@ jobs:
       cycle_key: ${{ steps.set-matrix.outputs.cycle_key }}
     # env:
     #   # CYCLE_KEY: ${{ inputs.cycle_key }}
-    #   ENV_KEY: ${{ inputs.env_key }}
+      # ENV_KEY: ${{ inputs.env_key }}
 
     steps:
       - uses: actions/checkout@v2
@@ -84,6 +71,7 @@ jobs:
     env:
       # CYCLE_KEY: ${{ inputs.cycle_key }}
       ENV_KEY: ${{ inputs.env_key }}
+      ZNACH: ${{ inputs.znach }}
     steps:
       - uses: actions/checkout@v2
 
@@ -96,5 +84,5 @@ jobs:
 
       - name: Run Print
         if: always()
-        run: node script.js cycleKey=${{ matrix.CYCLE_KEY }} envKey=$ENV_KEY
+        run: node script.js cycleKey=${{ matrix.CYCLE_KEY }}
         # run: node script.js cycleKey=$CYCLE_KEY envKey=$ENV_KEY
