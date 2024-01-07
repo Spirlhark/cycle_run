@@ -72,6 +72,7 @@ jobs:
       # CYCLE_KEY: ${{ inputs.cycle_key }}
       ENV_KEY: ${{ inputs.env_key }}
       ZNACH: ${{ inputs.znach }}
+      VUS: ${{ inputs.vus }}
     steps:
       - uses: actions/checkout@v2
 

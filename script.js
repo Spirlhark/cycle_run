@@ -11,6 +11,7 @@ let envKey = "Test_Env"
 // console.log(pricParm[0])
 let envKey2 = process.env.ENV_KEY
 let znacH = process.env.ZNACH
+let vus = process.env.VUS
 
 console.log("----------")
 console.log(envKey2)
@@ -18,6 +19,9 @@ console.log(typeof(envKey2))
 console.log("----------")
 console.log(znacH)
 console.log(typeof(znacH))
+console.log("----------")
+console.log(vus)
+console.log(typeof(vus))
 console.log("----------")
 
 if ( pricParm[0] != undefined ){
