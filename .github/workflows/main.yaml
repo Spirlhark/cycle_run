@@ -18,19 +18,23 @@ on:
         required: true
         default: 1
         type: number
-      durationsOrIterations:
-        type: choice
-        description: " Durations or Iterations "
-        options: 
-        - iterations
-        - durations
-      znach:
-        description: " Введите значение предыдущего параметра:\n
-        - если выбрали iterations укажите желаемое значение итераций        \t           
-        - если выбрали durations укажите значение в секундах "
-        required: false
-        default: 1
+      duration:
+        description: " Durations "
+        required: true
+        type: string
+        default: 'off'
+      iterations:
+        description: " Iterations "
+        required: true
         type: number
+        default: 1
+      # znach:
+      #   description: " Введите значение предыдущего параметра:\n
+      #   - если выбрали iterations укажите желаемое значение итераций        \t           
+      #   - если выбрали durations укажите значение в секундах "
+      #   required: false
+      #   default: 1
+      #   type: number
             
 
 jobs:
