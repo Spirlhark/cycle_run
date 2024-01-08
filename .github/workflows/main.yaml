@@ -26,8 +26,8 @@ on:
       iterations:
         description: " Iterations "
         required: true
-        type: number
-        default: 1
+        type: string
+        default: 'off'
       # znach:
       #   description: " Введите значение предыдущего параметра:\n
       #   - если выбрали iterations укажите желаемое значение итераций        \t           
@@ -77,6 +77,8 @@ jobs:
       ENV_KEY: ${{ inputs.env_key }}
       ZNACH: ${{ inputs.znach }}
       VUS: ${{ inputs.vus }}
+      DURATION: ${{ inputs.duration }}
+      ITERATIONS: ${{ inputs.iterations }}
     steps:
       - uses: actions/checkout@v2
 
