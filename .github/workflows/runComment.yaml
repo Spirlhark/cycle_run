@@ -7,7 +7,7 @@ on:
 jobs:
   print:
     runs-on: ubuntu-latest
-    # if: github.event.issue.pull_request
+    if: github.event.issue.pull_request
     # uses: github-actions/pipelines/.github/workflows/deploy-ansible-adhoc.yml@v1
     
     steps: 
