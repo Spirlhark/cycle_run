@@ -1,23 +1,22 @@
 name: runComment
 on:
   issue_comment:
-  #   types: [created]
+    types: [created]
   # workflow_dispatch:
 
 jobs:
   print:
     runs-on: ubuntu-latest
-    if: github.event.issue.pull_request
+    # if: github.event.issue.pull_request
     # uses: github-actions/pipelines/.github/workflows/deploy-ansible-adhoc.yml@v1
-    # if: |
-    #   github.event.issue.pull_request != '' &&
-    #   startsWith(github.event.comment.body, '/runTest')
+    if: |
+      github.event.issue.pull_request &&
+      startsWith(github.event.comment.body, '/runTest')
      
     - name: Run Print
-        if: always()
-        run: |
-          echo "Hello World"
-          echo "🍏 This job's status is ${{ job.status }}."
+      run: |
+        echo "Hello World"
+        echo "🍏 This job's status is ${{ job.status }}."
     # secrets: inherit
     # with:
     #   app: ramboplans
