@@ -5,11 +5,11 @@ on:
 
 jobs:
   job01:
-    runs-on: [ubuntu-latest]
+    runs-on: ubuntu-latest
     steps:
       - name: say hello
-      if: contains(github.event.comment.body, '/support')   # check the comment if it contains the keywords
-      run: echo "say hello"
+        if: contains(github.event.comment.body, '/support')   # check the comment if it contains the keywords
+        run: echo "say hello"
       - name: test
-      if: contains(github.event.comment.body, '/test')  # check the comment if it contains the keywords
-      run: echo "test"
+        if: contains(github.event.comment.body, '/test')  # check the comment if it contains the keywords
+        run: echo "test"
