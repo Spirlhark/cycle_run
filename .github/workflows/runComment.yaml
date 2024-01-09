@@ -9,14 +9,13 @@ jobs:
     runs-on: ubuntu-latest
     # if: github.event.issue.pull_request
     # uses: github-actions/pipelines/.github/workflows/deploy-ansible-adhoc.yml@v1
-    if: |
-      github.event.issue.pull_request &&
-      startsWith(github.event.comment.body, '/runTest')
-     
-    - name: Run Print
-      run: |
-        echo "Hello World"
-        echo "🍏 This job's status is ${{ job.status }}."
+    
+    steps: 
+      - name: Run Print
+        if: startsWith(github.event.comment.body, '/runTest')
+        run: |
+          echo "Hello World"
+          echo "🍏 This job's status is ${{ job.status }}."
     # secrets: inherit
     # with:
     #   app: ramboplans
