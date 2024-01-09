@@ -1,30 +1,30 @@
-# name: print_Cycle
+name: print_Cycle
  
-# on:
-#   pull_request:
-#     branches:
-#       - stage
+on:
+  pull_request:
+    branches:
+      - dev
 
-# jobs:
-#   print:
-#     runs-on: ubuntu-latest
+jobs:
+  print:
+    runs-on: ubuntu-latest
     
-#     # env:
-#     #   CYCLE_KEY: ${{ inputs.cycle_key }}
-#     #   ENV_KEY: ${{ inputs.name }}
-#     #   ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-#     #   TEST_VAR: ${{ secrets.TEST_VAR }}
+    # env:
+    #   CYCLE_KEY: ${{ inputs.cycle_key }}
+    #   ENV_KEY: ${{ inputs.name }}
+    #   ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+    #   TEST_VAR: ${{ secrets.TEST_VAR }}
 
-#     steps:
-#       - uses: actions/checkout@v2
+    steps:
+      - uses: actions/checkout@v2
 
-#       - uses: actions/setup-node@v1
-#         with:
-#           node-version: 16.x
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
 
-#       - name: Install dependencies
-#         run: npm install 
+      - name: Install dependencies
+        run: npm install 
 
-#       - name: Run Print
-#         if: always()
-#         run: node script.js
+      - name: Run Print
+        if: always()
+        run: node script.js
