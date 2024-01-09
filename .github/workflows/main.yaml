@@ -1,32 +1,19 @@
 name: print_Cycle
  
 on:
-  workflow_dispatch:
-    inputs:
-      name:
-        type: choice
-        description: Environment
-        options: 
-        - staging
-        - dev
-      cycle_key:
-        description: " Сycle key "
-        required: true
-        type: string
-      # test_key:
-      #   description: " ENV key "
-      #   required: true
-      #   type: string
+  pull_request:
+    branches:
+      - dev
 
 jobs:
   print:
     runs-on: ubuntu-latest
     
-    env:
-      CYCLE_KEY: ${{ inputs.cycle_key }}
-      ENV_KEY: ${{ inputs.name }}
-      ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-      TEST_VAR: ${{ secrets.TEST_VAR }}
+    # env:
+    #   CYCLE_KEY: ${{ inputs.cycle_key }}
+    #   ENV_KEY: ${{ inputs.name }}
+    #   ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+    #   TEST_VAR: ${{ secrets.TEST_VAR }}
 
     steps:
       - uses: actions/checkout@v2
@@ -40,4 +27,4 @@ jobs:
 
       - name: Run Print
         if: always()
-        run: node script.js cycleKey=$CYCLE_KEY
+        run: node script.js
