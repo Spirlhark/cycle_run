@@ -1,0 +1,85 @@
+name: print_Cycle
+ 
+on:
+  workflow_dispatch:
+    inputs:
+      CYCLE_KEY:
+        description: " Сycle key "
+        required: true
+        default: 'XXX-1111,XXX-2222'
+      env_key:
+        type: choice
+        description: Environment
+        options: 
+        - staging
+        - dev
+      vus:
+        description: " VUS "
+        required: true
+        default: 1
+        type: number
+      duration:
+        description: " Durations "
+        required: true
+        type: string
+        default: 'off'
+      iterations:
+        description: " Iterations "
+        required: true
+        type: string
+        default: 'off'
+            
+
+jobs:
+  pre:
+    runs-on: ubuntu-latest
+    outputs:
+      cycle_key: ${{ steps.set-matrix.outputs.cycle_key }}
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - name: Install dependencies
+        run: npm install 
+      - name: pullrequest input
+        id: pullrequestInput
+        uses: ./.github/actions/pullrequest/
+        # with:
+        #   cycle_key: ${{ inputs.CYCLE_KEY }}
+      - id: set-matrix
+        run: |
+          echo "::set-output name=cycle_key::${{ steps.pullrequestInput.outputs.cycle_key }}"
+
+  print:
+    needs: pre
+    runs-on: ubuntu-latest
+    name: "${{ matrix.CYCLE_KEY }}"
+    strategy:
+      fail-fast: false
+      matrix:
+        CYCLE_KEY: ${{fromJSON( needs.pre.outputs.cycle_key )}}
+    env:
+      # CYCLE_KEY: ${{ inputs.cycle_key }}
+      ENV_KEY: ${{ inputs.env_key }}
+      ZNACH: ${{ inputs.znach }}
+      VUS: ${{ inputs.vus }}
+      DURATION: ${{ inputs.duration }}
+      ITERATIONS: ${{ inputs.iterations }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - name: Install dependencies
+        run: npm install 
+
+      - name: Run Print
+        if: always()
+        run: node script.js cycleKey=${{ matrix.CYCLE_KEY }}
+        # run: node script.js cycleKey=$CYCLE_KEY envKey=$ENV_KEY

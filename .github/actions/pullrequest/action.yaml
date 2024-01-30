@@ -1,0 +1,20 @@
+# This is custom action, for transforming input to stringified output
+name: Workflow input transformer
+description: This custom action will transform input to stringified output
+inputs:
+  cycle_key:
+    description: " Сycle key "
+    required: true
+    default: 'XXX-1111,XXX-2222'
+  # environment:
+  #   type: choice
+  #   description: Environment
+  #   options: 
+  #   - staging
+  #   - dev
+outputs:
+  cycle_key:
+    description: This is transformed output in array of string from provided cycle_key
+runs:
+  using: node16
+  main: index.js
