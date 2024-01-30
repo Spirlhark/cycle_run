@@ -34,9 +34,22 @@ jobs:
         with:
           github-token: ${{secrets.BOT_TOKEN}}
           script: |
+            const output = `
+              You can find a link to the downloadable Cucumber Report below.
+
+              | Name            | Link                                                                                                     |
+              | --------------- | -------------------------------------------------------------------------------------------------------- |
+              | Commit          | ${{ github.event.pull_request.head.sha }}                                                                |
+              | Zephyre         | [Link TestCyclr](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) |
+              | DataDog Report  | [Link Report](${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}) |
+
+              Please note that files only stay for around 5 days!
+
+              `;
+
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: `URAAA!!!`
+              body: output
             });
