@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        version: [10, 12]
+        version: ['AAA', 'BBB']
     # if: version != '12'
     
     # env:
@@ -30,7 +30,7 @@ jobs:
         run: npm install 
 
       - name: Run Print
-        if: ${{ github.repository }} == 'Spirlhark/cycle_run'
+        if: matrix.version != 'AAA'
         run: echo ${{ matrix.version }}
 
       - name: Update PR
