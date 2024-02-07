@@ -26,8 +26,8 @@ jobs:
         run: npm install 
 
       - name: Run Print
-        if: always()
-        run: node script.js
+        # if: 
+        run: echo ${{ github.repository }}
 
       - name: Update PR
         # if: 'A' == 'a'
