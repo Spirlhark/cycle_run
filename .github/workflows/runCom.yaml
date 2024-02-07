@@ -11,6 +11,7 @@ jobs:
     strategy:
       matrix:
         version: [10, 12, 14]
+    if: matrix.version != '12'
     
     # env:
     #   CYCLE_KEY: ${{ inputs.cycle_key }}
@@ -29,7 +30,7 @@ jobs:
         run: npm install 
 
       - name: Run Print
-        if: matrix.version != '12'
+        # if: matrix.version != '12'
         run: echo ${{ matrix.version }}
 
       - name: Update PR
