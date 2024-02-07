@@ -30,7 +30,7 @@ jobs:
         run: npm install 
 
       - name: Run Print
-        if: matrix.version != 'AAA'
+        if: matrix.version != 'aaa'
         run: echo ${{ matrix.version }}
 
       - name: Update PR
