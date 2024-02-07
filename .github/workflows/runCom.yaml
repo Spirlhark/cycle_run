@@ -30,6 +30,7 @@ jobs:
         run: node script.js
 
       - name: Update PR
+        if: 'A' == 'a'
         uses: actions/github-script@v6
         with:
           github-token: ${{secrets.BOT_TOKEN}}
