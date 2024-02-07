@@ -8,6 +8,9 @@ on:
 jobs:
   print:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        version: [10, 12, 14]
     
     # env:
     #   CYCLE_KEY: ${{ inputs.cycle_key }}
@@ -26,8 +29,8 @@ jobs:
         run: npm install 
 
       - name: Run Print
-        if: github.repository != 'Spirlhark/cycle_run'
-        run: echo ${{ github.repository }}
+        if: github.repository == 'Spirlhark/cycle_run'
+        run: echo ${{ matrix.version }}
 
       - name: Update PR
         # if: 'A' == 'a'
