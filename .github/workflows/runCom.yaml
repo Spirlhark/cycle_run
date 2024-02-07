@@ -29,7 +29,7 @@ jobs:
         run: npm install 
 
       - name: Run Print
-        if: github.repository == 'Spirlhark/cycle_run'
+        if: matrix.version != '12'
         run: echo ${{ matrix.version }}
 
       - name: Update PR
