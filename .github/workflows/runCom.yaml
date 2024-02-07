@@ -11,7 +11,7 @@ jobs:
     strategy:
       matrix:
         version: [10, 12, 14]
-    if: matrix.version != '12'
+    if: version != '12'
     
     # env:
     #   CYCLE_KEY: ${{ inputs.cycle_key }}
