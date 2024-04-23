@@ -1,8 +1,8 @@
-name: Print Test Cycle at 19:00 every day.
+name: Test cycles run at 19:00 every day.
 
 on:
   schedule:
-    - cron: '0 19 * * *' # Запускать каждые 15 минут
+    - cron: '*/15 * * * *'
 
 
 jobs:
@@ -19,7 +19,7 @@ jobs:
 
       - uses: actions/setup-node@v1
         with:
-          node-version: 16.x
+          node-version: 20.x
 
       - name: Install dependencies
         run: npm install 
