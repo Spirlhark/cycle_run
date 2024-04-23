@@ -2,7 +2,7 @@ name: print_Cycle
  
 on:
   schedule:
-    - cron: '0/5 * * * *'
+    - cron: '30/9 * * * *'
 
             
 
