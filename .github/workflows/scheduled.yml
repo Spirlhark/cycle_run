@@ -2,7 +2,7 @@ name: Print Hello World Every 5 Minutes
 
 on:
   schedule:
-    - cron: '*/5 * * * *' # Запускать каждые 5 минут
+    - cron: '*/15 * * * *' # Запускать каждые 15 минут
 
 jobs:
   print_hello_world:
