@@ -1,12 +1,60 @@
-name: Print Hello World Every 5 Minutes
+name: Print Test Cycle at 19:00 every day.
 
 on:
   schedule:
-    - cron: '*/15 * * * *' # Запускать каждые 15 минут
+    - cron: '0 19 * * *' # Запускать каждые 15 минут
+
 
 jobs:
-  print_hello_world:
+  pre:
     runs-on: ubuntu-latest
+    outputs:
+      cycle_key: ${{ steps.set-matrix.outputs.cycle_key }}
+    # env:
+    #   # CYCLE_KEY: ${{ inputs.cycle_key }}
+      # ENV_KEY: ${{ inputs.env_key }}
+
     steps:
-      - name: Print Hello World
-        run: echo "Hello, world!"
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - name: Install dependencies
+        run: npm install 
+      - name: transform input
+        id: transformInput
+        uses: ./.github/actions/transform/
+        with:
+          cycle_key: 'XXX-1111,XXX-2222,XXX-3333,XXX-4444'
+      - id: set-matrix
+        run: |
+          echo "::set-output name=cycle_key::${{ steps.transformInput.outputs.cycle_key }}"
+  print:
+    needs: pre
+    runs-on: ubuntu-latest
+    name: "${{ matrix.CYCLE_KEY }}"
+    strategy:
+      fail-fast: false
+      matrix:
+        CYCLE_KEY: ${{fromJSON( needs.pre.outputs.cycle_key )}}
+    env:
+      # CYCLE_KEY: ${{ inputs.cycle_key }}
+      ENV_KEY: string
+      VUS: 1
+      DURATION: 'off'
+      ITERATIONS: 1
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 16.x
+
+      - name: Install dependencies
+        run: npm install 
+
+      - name: Run Print
+        if: always()
+        run: node script.js cycleKey=${{ matrix.CYCLE_KEY }}
