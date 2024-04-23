@@ -28,7 +28,7 @@ for ( let i=0; res.length > i; i++ ){
 }
 console.log(cycle_key)
 
-// const pricParm = process.argv.slice(2)
+const pricParm = process.argv.slice(2)
 // let cycleKey = "SSS-1111,SSS-2222"
 // let envKey = "Test_Env"
 
@@ -71,8 +71,7 @@ console.log("====         ====")
 console.log("=               =")
 console.log("=               =")
 console.log(" ")
-// console.log(`${text}`)
-// console.log(`${envKey}`)
+console.log(pricParm)
 console.log("=               =")
 console.log("=               =")
 console.log("====         ====")
