@@ -1,4 +1,4 @@
-name: print_Cycle
+name: print_Cycle_PR
  
 on:
   workflow_dispatch:
