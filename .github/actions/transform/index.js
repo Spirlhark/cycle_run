@@ -3,6 +3,7 @@ import core from "@actions/core";
 try {
   // `cycle_key` input defined in action metadata file with default value "XXX-1111,XXX-2222"
   const cycle_key = core.getInput("cycle_key", { require: true });
+  console.log(cycle_key)
 // // `nodeversion` input defined in action metadata file with default value "10,16"
 //   const nodeVersion = core.getInput("nodeversion", { required: true });
 core.info(
