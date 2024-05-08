@@ -5,13 +5,20 @@ import fetch from "node-fetch";
 
 let cycleKeys;
 async function executionData() {
+    // const response = await fetch(`https://dimacyclebuket.s3.amazonaws.com/CycleList.json`, {
+    //     method: "GET",
+    //     headers: {},
+    //     });
+
     const response = await fetch(`https://dimacyclebuket.s3.amazonaws.com/CycleList.json`, {
-        method: "GET",
-        headers: {},
-        });
+          method: "GET", // or 'PUT' or 'POST'
+          headers: {},
+          });
+      
+    const res = await response.json();
     // resBody = JSON.parse(response.body)
     console.log("++++++++")
-    console.log(response);
+    console.log(res);
     console.log("++++++++")
 
     // cycleKeys=resBody.key
