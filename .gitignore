@@ -1,2 +1,3 @@
 node_modules
 run-testcycle.yml
+/s3_key

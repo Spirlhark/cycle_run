@@ -1,5 +1,32 @@
 // const core = require("@actions/core");
 import core from "@actions/core";
+import fetch from "node-fetch";
+
+
+let cycleKeys;
+async function executionData() {
+    const response = await fetch(`https://dimacyclebuket.s3.amazonaws.com/CycleList.json`, {
+        method: "GET",
+        headers: {},
+        });
+    resBody = JSON.parse(response.body)
+    console.log("++++++++")
+    console.log(resBody);
+    console.log("++++++++")
+
+    cycleKeys=resBody.key
+    console.log("=======")
+    console.log(cycleKeys)
+    console.log("=======")
+
+}
+
+executionData()
+
+console.log("---===***====---")
+console.log(cycleKeys)
+console.log("---===***====---")
+
 try {
   // `cycle_key` input defined in action metadata file with default value "XXX-1111,XXX-2222"
   let cycle_keyUp = core.getInput("cycle_key", { require: true });
