@@ -5,9 +5,9 @@ import fetch from "node-fetch";
 async function executionData() {
 
   let currentDate = new Date();
-  console.log("---===***===---")
+  console.log("---===*****===---")
   console.log(currentDate)
-  console.log("---===***===---")
+  console.log("---===*****===---")
 
   const response = await fetch(`https://dimacyclebuket.s3.amazonaws.com/CycleList.json`, {
         method: "GET", // or 'PUT' or 'POST'
