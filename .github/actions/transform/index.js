@@ -18,10 +18,10 @@ async function executionData() {
     const res = await response.json();
     // resBody = JSON.parse(response.body)
     console.log("++++++++")
-    console.log(res);
+    console.log(res.key);
     console.log("++++++++")
 
-    // cycleKeys=resBody.key
+    cycleKeys=res.key
     // console.log("=======")
     // console.log(cycleKeys)
     // console.log("=======")
@@ -30,9 +30,9 @@ async function executionData() {
 
 executionData()
 
-// console.log("---===***====---")
-// console.log(cycleKeys)
-// console.log("---===***====---")
+console.log("---===***====---")
+console.log(cycleKeys)
+console.log("---===***====---")
 
 try {
   // `cycle_key` input defined in action metadata file with default value "XXX-1111,XXX-2222"
