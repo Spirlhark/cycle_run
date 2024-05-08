@@ -1,8 +1,8 @@
-name: Test cycles run at 19:00 every day.
+name: Test cycles run at 21:00 every day.
 
 on:
   schedule:
-    - cron: '0 21 * * *'
+    - cron: '0 17 * * *'
  
 jobs:
   pre:
