@@ -9,23 +9,23 @@ async function executionData() {
         method: "GET",
         headers: {},
         });
-    resBody = JSON.parse(response.body)
+    // resBody = JSON.parse(response.body)
     console.log("++++++++")
-    console.log(resBody);
+    console.log(response);
     console.log("++++++++")
 
-    cycleKeys=resBody.key
-    console.log("=======")
-    console.log(cycleKeys)
-    console.log("=======")
+    // cycleKeys=resBody.key
+    // console.log("=======")
+    // console.log(cycleKeys)
+    // console.log("=======")
 
 }
 
 executionData()
 
-console.log("---===***====---")
-console.log(cycleKeys)
-console.log("---===***====---")
+// console.log("---===***====---")
+// console.log(cycleKeys)
+// console.log("---===***====---")
 
 try {
   // `cycle_key` input defined in action metadata file with default value "XXX-1111,XXX-2222"
