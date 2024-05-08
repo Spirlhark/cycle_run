@@ -21,7 +21,7 @@ jobs:
         id: transformInput
         uses: ./.github/actions/transform/
         with:
-          cycle_key: 'XXX-1111,XXX-2222,XXX-3333,XXX-4444'
+          cycle_key: 'XXX-1111,XXX-2222'
       - id: set-matrix
         run: |
           echo "::set-output name=cycle_key::${{ steps.transformInput.outputs.cycle_key }}"
