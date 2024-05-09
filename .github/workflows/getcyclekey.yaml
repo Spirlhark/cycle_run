@@ -1,6 +1,6 @@
 name: print_Cycle_s3
  
-on: pull_request
+on: push
             
 jobs:
   pre:
@@ -10,6 +10,17 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+
+      - name: Configure AWS credentials
+        id: aws-credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_KEY }}
+          aws-region: us-east-1
+        run: |
+          export CYCLEKEYLIST=`aws ssm get-parameters --name testCycleKeyList --region us-east-1 --output text --query "Parameters[*].Value"`
+          echo $CYCLEKEYLIST
 
       - uses: actions/setup-node@v1
         with:
