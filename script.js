@@ -15,7 +15,7 @@ import fetch from "node-fetch";
 // }
 
 console.log("~~~~~~~~~~~~")
-console.log("PR test 1")
+console.log("PR test 2")
 console.log("PR test 0.3")
 console.log("~~~~~~~~~~~~")
 
