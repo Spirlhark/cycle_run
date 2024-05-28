@@ -17,7 +17,7 @@ import fetch from "node-fetch";
 console.log("~~~~~~~~~~~~")
 console.log("PR test 3")
 console.log("~~~~~~~~~~~~")
-console.log("URAAAA !!!!")
+console.log("PR test 0.2")
 console.log("~~~~~~~~~~~~")
 
 // let cycleKeys = cycleKey.split(",")
