@@ -19,7 +19,8 @@ async function executionData() {
   console.log(res.key);
   console.log("++++++++")
 
-  let cycleKeys=res.key
+  // let cycleKeys=res.key  // <-------
+  let cycleKeys='xxx-y1'
 
   try {
     const cycle_key = cycleKeys.toUpperCase()
